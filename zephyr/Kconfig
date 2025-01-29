@@ -1,0 +1,32 @@
+# Copyright (c) 2025 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+config ZEPHYR_LIBLC3_MODULE
+	bool
+
+config LIBLC3PLUS
+	bool "liblc3 Support"
+	select REQUIRES_FULL_LIBC
+	help
+	  This option enables the Fraunhofer LC3Plus library for Bluetooth LE Audio
+
+if LIBLC3PLUS
+
+choice
+	prompt "LC3plus version"
+	default LIBLC3PLUS_FLOAT if FPU
+	default LIBLC3PLUS_FIXED
+
+config LIBLC3PLUS_FLOAT
+	bool "Floating point version"
+	help
+	  This option enables the floating point version of the LC3plus library
+
+config LIBLC3PLUS_FIXED
+	bool "Fixed point version"
+	help
+	  This option enables the fixed point version of the LC3plus library
+
+endchoice
+
+endif
