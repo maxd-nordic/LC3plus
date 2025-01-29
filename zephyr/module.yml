@@ -1,0 +1,4 @@
+name: liblc3plus
+build:
+  cmake: zephyr
+  kconfig: zephyr/Kconfig
