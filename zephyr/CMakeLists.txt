@@ -1,7 +1,7 @@
 if(CONFIG_LIBLC3PLUS)
 
 zephyr_library_named(liblc3plus)
-zephyr_library_compile_options(-O3 -std=c11 -ffast-math -Wno-array-bounds -DDISABLE_HR_MODE)
+zephyr_library_compile_options(-O3 -std=c11 -ffast-math -Wno-array-bounds -DDISABLE_HR_MODE -DWMOPS=0 -DDONT_COUNT_MEM)
 
 if(CONFIG_LIBLC3PLUS_FIXED)
 zephyr_include_directories(${ZEPHYR_LIBLC3PLUS_MODULE_DIR}/src/fixed_point)
