@@ -6,12 +6,12 @@
 * Rights Policy, 3rd April 2019. No patent licence is granted by implication, *
 * estoppel or otherwise.                                                      *
 ******************************************************************************/
-                                                                               
+
 
 /*
     Tool for dynamic memory estimation
     Anisse Taleb, November 2003
-  
+
 */
 
 /* turn off stdlib function warnings in visual studio */
@@ -208,7 +208,7 @@ void P_Dyn_Mem_Exit(void)
     /*f_mem_statistics = fopen("mem_stat.txt","wt");
     fprintf(f_mem_statistics,"\n Maximum dynamic memory usage = %ld b, %ld kW \n Critical Memory Usage Path", Max_mem_usage, Max_mem_usage/(1000*2));*/
     /* fprintf(stderr,"\n Maximum dynamic memory usage = %ld kWords (%ld bytes)\n Critical Memory Usage Path", Max_mem_usage/(1000*2),Max_mem_usage); */
-    fprintf(stderr,"\n Maximum dynamic memory usage = %.2f kWords (%ld bytes)\n Critical Memory Usage Path", (ceil((float)Max_mem_usage/20.f)/100.f), Max_mem_usage);
+    fprintf(stderr,"\n Maximum dynamic memory usage = %.2f kWords (%ld bytes)\n Critical Memory Usage Path", (ceil((float)Max_mem_usage/20.f)/(double)100.f), Max_mem_usage);
 
     node = Max_Mem_path;
         while (node != NULL) {
@@ -265,7 +265,7 @@ void P_Sta_Mem_Exit(void)
 {
     C_Path *node;
     /* fprintf(stderr,"\n Static memory usage = %ld kWords (%ld bytes)\n Detailed Memory Usage", Static_mem_curr->mem_usage_acc/(1000*2),Static_mem_curr->mem_usage_acc); */
-    fprintf(stderr,"\n Static memory usage = %.2f kWords (%ld bytes)\n Detailed Memory Usage", (ceil((float)Static_mem_curr->mem_usage_acc/20.f)/100.f),Static_mem_curr->mem_usage_acc);
+    fprintf(stderr,"\n Static memory usage = %.2f kWords (%ld bytes)\n Detailed Memory Usage", (ceil((float)Static_mem_curr->mem_usage_acc/20.f)/(double)100.f),Static_mem_curr->mem_usage_acc);
 
     node = Static_mem_head->next;
     while (node != NULL) {
