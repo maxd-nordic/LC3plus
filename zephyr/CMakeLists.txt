@@ -1,9 +1,9 @@
 if(CONFIG_LIBLC3PLUS)
 
 zephyr_library_named(liblc3plus)
-zephyr_library_compile_options(-O3 -std=c11 -ffast-math -Wno-array-bounds -DDISABLE_HR_MODE -DWMOPS=0 -DDONT_COUNT_MEM)
 
 if(CONFIG_LIBLC3PLUS_FIXED)
+zephyr_library_compile_options(-O3 -std=c11 -ffast-math -Wno-array-bounds -DDISABLE_HR_MODE -DWMOPS=0 -DDONT_COUNT_MEM)
 zephyr_include_directories(${ZEPHYR_LIBLC3PLUS_MODULE_DIR}/src/fixed_point)
 zephyr_include_directories(${ZEPHYR_LIBLC3PLUS_MODULE_DIR}/src/fixed_point/basic_op)
 zephyr_library_sources(${ZEPHYR_LIBLC3PLUS_MODULE_DIR}/src/fixed_point/basic_op/basop32.c)
@@ -87,6 +87,7 @@ zephyr_library_sources(${ZEPHYR_LIBLC3PLUS_MODULE_DIR}/src/fixed_point/tns_decod
 endif()
 
 if(CONFIG_LIBLC3PLUS_FLOAT)
+zephyr_library_compile_options(-O3 -std=c11 -ffast-math -Wno-array-bounds -DDISABLE_HR_MODE -DDONT_COUNT_MEM)
 zephyr_include_directories(${ZEPHYR_LIBLC3PLUS_MODULE_DIR}/src/floating_point)
 zephyr_library_sources(${ZEPHYR_LIBLC3PLUS_MODULE_DIR}/src/floating_point/adjust_global_gain.c)
 zephyr_library_sources(${ZEPHYR_LIBLC3PLUS_MODULE_DIR}/src/floating_point/al_fec_fl.c)
